@@ -1,98 +1,24 @@
+<?php
+session_start();
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    $_SESSION['hour'] = $_POST['hour'];
+    $_SESSION['min'] = $_POST['min'];
+    header('Location: /user-birthplace');
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
-<head>
-    <meta charSet="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-adsense-account" content="ca-pub-7337946309743403" />
-    <link rel="canonical" href="https://vedicrishi.in/indepth-kundli-analysis" />
-    <link rel="apple-touch-icon" sizes="76x76" href="https://vedicrishi.in/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://vedicrishi.in/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://vedicrishi.in/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="https://vedicrishi.in/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="https://vedicrishi.in/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#f5a540" />
-    <meta name="description"
-        content="Get a free, in-depth kundli analysis based on Vedic astrology and gain deep insights into your personality, soul desire, inner-self and many more." />
-    <meta name="keywords"
-        content="kundali, kundli analysis free, kundli analysis online free, free janam kundli analysis." />
-    <title> Free Kundli Analysis - Create Your Janam Kundali Using Vedic Astrology</title>
-    <meta name="next-head-count" content="14" />
-
-    <script defer>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PC4V7FG');
-    </script>
-    <script defer>
-        ! function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '262538457898310');
-        fbq('track', 'PageView');
-    </script>
-    <link rel="preload" href="https://vedicrishi.in/_next/static/css/64f85c7d9980fb38.css" as="style" />
-    <link rel="stylesheet" href="https://vedicrishi.in/_next/static/css/64f85c7d9980fb38.css" data-n-g />
-    <link rel="preload" href="https://vedicrishi.in/_next/static/css/47d48c16f73e9094.css" as="style" />
-    <link rel="stylesheet" href="https://vedicrishi.in/_next/static/css/47d48c16f73e9094.css" data-n-p /><noscript
-        data-n-css></noscript>
-    <script defer nomodule src="https://vedicrishi.in/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/webpack-ab5b12e9e508e595.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/framework-6f841690455742a6.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/main-a9a88c0891a23d43.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/pages/_app-ebe9654290209441.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/11010-70c78e5559e650a5.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/22563-48532fbca245e140.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/86122-c6debbc83ebcdcc8.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/35140-91901294a6e06677.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/chunks/pages/indepth-kundli-analysis-47ef5db41924cd51.js" defer>
-    </script>
-    <script src="https://vedicrishi.in/_next/static/a5CTEv38wp9v61_66Rxhq/_buildManifest.js" defer></script>
-    <script src="https://vedicrishi.in/_next/static/a5CTEv38wp9v61_66Rxhq/_ssgManifest.js" defer></script>
-    <style id="__jsx-56635bc6dab035da">
-        .glass-effect.jsx-56635bc6dab035da {
-            -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 10
-        }
-    </style>
-</head>
-
+<?php require_once __DIR__ . '/../includes/header.php' ?>
 <body class="bg-white scroll-smooth "><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4V7FG"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="__next" data-reactroot>
         <div class="w-full">
+            <form action="/user-birthtime" method="post">
             <div>
                 <div id="analyser"
                 class="jsx-56635bc6dab035da relative overflow-y-scroll min-h-screen   md:py-3 h-full md:h-screen flex justify-center w-full  bg-cover bg-center " style="background-image: url(https://cdn.astopia.com/e8f74246-789f-4791-a86b-a309155a246a.jpg);">
@@ -115,8 +41,8 @@
                                             <div
                                                 class="flex sm:flex-row flex-col max-w-xs md:max-w-full mx-auto gap-5 w-full">
                                                 <select name="hour" type="number"
-                                                    class="outline-none  !border-zinc-200 focus:outline-k_orange outline-offset-2 !border md:text-xl text-lg text-center  !p-5 focus:border-zinc-800 !rounded-[20px] w-full">
-                                                    <option value="true">HH</option>
+                                                    class="outline-none  !border-zinc-200 focus:outline-k_orange outline-offset-2 !border md:text-xl text-lg text-center  !p-5 focus:border-zinc-800 !rounded-[20px] w-full" required>
+                                                    <option value="">HH</option>
                                                     <option value="0">00 (12 midnight)</option>
                                                     <option value="1">01 (am)</option>
                                                     <option value="2">02 (am)</option>
@@ -142,8 +68,8 @@
                                                     <option value="22">22 (10 pm)</option>
                                                     <option value="23">23 (11 pm)</option>
                                                 </select><select name="min" type="number"
-                                                    class="outline-none  !border-zinc-200 focus:outline-k_orange outline-offset-2 !border md:text-xl text-lg text-center  !p-5 focus:border-zinc-800 !rounded-[20px] w-full">
-                                                    <option value="true">MM</option>
+                                                    class="outline-none  !border-zinc-200 focus:outline-k_orange outline-offset-2 !border md:text-xl text-lg text-center  !p-5 focus:border-zinc-800 !rounded-[20px] w-full" required>
+                                                    <option value="">MM</option>
                                                     <option value="0">00</option>
                                                     <option value="1">01</option>
                                                     <option value="2">02</option>
@@ -218,46 +144,22 @@
                         style="mask-image: linear-gradient(white, white, transparent);"></div>
                         <div
                         class="flex justify-between py-3 px-5 w-[95%] rounded-md mx-auto bg-white shadow shadow-zinc-300/50">
-                        <a href="./form_gender.html"
+                        <a href="/user-birthdate"
                             class=" max-w-max flex-row-reverse gap-5 justify-between font-cera_regular border border-current opacity-70 text-zinc-500 text-base w-full py-2 px-3 hover:opacity-100 ease-in duration-100 rounded-md flex items-center text-center"><span
                                 class="text-current"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"></path>
-                                </svg></span></a><a href="./form_place.html"
-                            class=" max-w-max relative z-[999] gap-10 justify-between font-cera_regular bg-k_orange active:bg-orange-800 text-white text-base w-full py-2.5 px-5 ease-in duration-100 rounded-md flex items-center text-center"><span>Next</span><span
-                                class="text-current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                    fill="currentColor" class="w-5 h-5">
-                                    <path fill-rule="evenodd"
-                                        d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z"
-                                        clip-rule="evenodd"></path>
-                                </svg></span></a></div>
+                                </svg></span></a><button type="submit" class=" max-w-max relative z-[999] gap-10 justify-between font-cera_regular bg-orange-400 active:bg-orange-800 text-white text-base w-full py-2.5 px-5 ease-in duration-100 rounded-md flex items-center text-center"><span>Next</span><span class="text-current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clip-rule="evenodd"></path>
+                                </svg></span></button></div>
                 </div>
             </div>
         </div>
+                                </form>
     </div>
 
-    <noscript><img alt="facebook" height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=262538457898310&amp;ev=PageView&amp;noscript=1" /></noscript>
-    <script defer>
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () {
-                (c[a].q = c[a].q || []).push(arguments)
-            };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "81k2n4qkke");
-    </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon="{&quot;token&quot;: &quot;2956ecfb11ff405fa48a3443e760f0e1&quot;}"></script>
-    <script defer
-        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon='{"rayId":"8a283fabac34b252","serverTiming":{"name":{"cfL4":true}},"version":"2024.6.1","token":"c3ee45b4b4fc4ad9a6e912a8f8bf66a9"}'
-        crossorigin="anonymous"></script>
+ 
 </body>
 
 </html>

@@ -1,39 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 
-<head>
-    <meta charSet="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="76x76" href="https://vedicrishi.in/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://vedicrishi.in/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://vedicrishi.in/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="https://vedicrishi.in/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="https://vedicrishi.in/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#f5a540" />
-    <meta name="description"
-        content="Get a free, in-depth kundli analysis based on Vedic astrology and gain deep insights into your personality, soul desire, inner-self and many more." />
-    <meta name="keywords"
-        content="kundali, kundli analysis free, kundli analysis online free, free janam kundli analysis." />
-    <title> Free Kundli Analysis - Create Your Janam Kundali Using Vedic Astrology</title>
-    <meta name="next-head-count" content="14" />
-    <script src="https://cdn.tailwindcss.com"></script>
- 
- 
-   
-  
-    <style id="__jsx-56635bc6dab035da">
-        .glass-effect.jsx-56635bc6dab035da {
-            -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 10
-        }
-    </style>
-</head>
+<?php require_once __DIR__.'/includes/header.php'?>
 
 <body class="bg-white scroll-smooth ">
     <div id="" data-reactroot>
@@ -81,7 +49,7 @@
                     </div>
                     <div
                         class="flex justify-between py-3 px-5 w-[95%] rounded-md mx-auto bg-white shadow shadow-zinc-300/50">
-                        <div></div><a href="/pages/form_name.html"
+                        <div></div><a href="/user-name"
                             class=" max-w-max relative z-[999] gap-10 justify-between font-cera_regular bg-orange-400 active:bg-orange-800 text-white text-base w-full py-2.5 px-5 ease-in duration-100 rounded-md flex items-center text-center"><span>Next</span><span
                                 class="text-current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor" class="w-5 h-5">

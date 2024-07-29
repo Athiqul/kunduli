@@ -1,3 +1,14 @@
+<?php
+session_start();
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    $_SESSION['country'] = $_POST['country'];
+    $_SESSION['state'] = $_POST['state'];
+    header('Location: /user-report');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 

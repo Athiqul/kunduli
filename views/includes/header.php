@@ -29,5 +29,66 @@
             position: relative;
             z-index: 10
         }
+        .chart {
+    position: absolute;
+    z-index: 10;
+    opacity: .01
+}
+.gray {
+    transition: all .1s ease-in;
+    -moz-filter: brightness(1.4) grayscale(1) opacity(.8);
+    filter: brightness(1.4) grayscale(1) opacity(.8)
+}
+.chart,
+.graychart {
+    width: 100%;
+    height: 100%
+}
+
+.graychart {
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block
+}
+
+
+        .pdf-north-chart {
+    background-image: url(https://vedicrishi.in/icons/north_ico.png);
+    width: 40px;
+    height: 40px
+}
+
+.pdf-south-chart {
+    background-image: url(https://vedicrishi.in/icons/south_ico.png);
+    width: 40px;
+    height: 40px
+}
+
+.pdf-east-chart {
+    background-image: url(https://vedicrishi.in/icons/east_ico.png);
+    width: 40px;
+    height: 40px
+}
+
+.input {
+    border: 2px solid #a3a3a3;
+    color: #454545
+}
+
+.inputbox,
+.inputbox2 {
+    display: flex;
+    flex-grow: 1;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%
+}
+
+.inputbox2 {
+    flex: 2
+}
     </style>
 </head>

@@ -96,7 +96,7 @@ if (!isset($_SESSION['name'])) {
                                                             influencing how we handle life's challenges. Good yoga can
                                                             mitigate tithi and karan issues.</p>
                                                     </div>
-                                                   
+
                                                 </div>
                                                 <div class="flex bg-[#d7edf9]
        mt-3 w-full cursor-pointer relative overflow-hidden rounded-xl justify-center py-5   text-left gap-4 items-center">
@@ -106,7 +106,7 @@ if (!isset($_SESSION['name'])) {
                                                                     report</b> with personalised remedies is ready. It
                                                                 is <b class="font-linotte_bold   ">145+ pages</b> with
                                                                 analysis, remedies and Dasha predictions based on your
-                                                                kundli.</span><br><a href="./payment.html">
+                                                                kundli.</span><br><a href="/payment">
                                                                 <b class=" font-linotte_bold border-current max-w-max flex gap-1 items-center ">Download
                                                                     Your Report Now →</b>
                                                             </a>

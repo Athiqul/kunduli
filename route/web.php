@@ -37,9 +37,17 @@ if($requestUri=='/')
 {
      
     require_once __DIR__.'/../views/payment.php';
-}
-
-else {
+}else if($requestUri=='/razor-payment'){
+    echo 'Payment Razor';
+    die();
+    require_once __DIR__.'/../views/payments/submit_payment.php';
+} else if($requestUri=='/payment-success'){
+    echo 'Payment';
+    die();
+    require_once __DIR__.'/../views/payments/success_payment.php';
+} else if($requestUri=='/payment-failed'){
+    require_once __DIR__.'/../views/payments/failed_payment.php';
+}else {
     http_response_code(404);
     require_once __DIR__.'/views/404.php';
     exit();

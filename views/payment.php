@@ -32,37 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="border-4 border-yellow-400 rounded-xl w-full">
                             <div>
                                 <div class="flex flex-col divide-y ">
+                                   
                                     <div class="flex relative gap-5 items-center py-3.5 md:px-10 px-5">
-                                        <label for="Varshphal Report" class="relative border overflow-hidden rounded-md flex w-[30px] h-[30px] text-center duration-100 gap-2 ease-in cursor-pointer justify-center flex-col items-center text-lg border-transparent shadow-lg shadow-lime-500/30 bg-lime-600">
+                                        <label for="Your Premium Kundli" class="relative border overflow-hidden rounded-md flex w-[30px] h-[30px] text-center duration-100 gap-2 ease-in cursor-pointer justify-center flex-col items-center text-lg border-transparent shadow-lg shadow-lime-500/30 bg-lime-600">
                                             <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff" class="w-5 h-5">
                                                     <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path>
                                                 </svg>
                                             </span>
-                                            <input type="radio" id="Varshphal Report" value="VARSHPHAL REPORT" name="offer" class="opacity-0 cursor-pointer absolute" onchange="handleOfferChange()">
-                                        </label>
-                                        <div class="flex justify-between w-full items-center">
-                                            <div>
-                                                <h2 class="md:text-lg flex sm:flex-row flex-col justify-start text-left sm:gap-3 sm:items-center">
-                                                    Varshphal Report</h2>
-                                                <p class="sm:pt-0 pt-1 text-orange-600 font-cera_medium">Your Yearly Predictions</p>
-                                            </div>
-                                            <div>
-                                                <div class="flex text-right md:gap-3 text-xl md:flex-row flex-col">
-                                                    <span class="line-through text-lg md:text-xl text-zinc-500">$ <!-- -->20</span>
-                                                    <h2>$ <!-- -->10</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex relative gap-5 items-center py-3.5 md:px-10 px-5">
-                                        <label for="Your Premium Kundli" class="relative border overflow-hidden rounded-md flex w-[30px] h-[30px] text-center duration-100 gap-2 ease-in cursor-pointer justify-center flex-col items-center text-lg border-zinc-300 bg-white hover:border-lime-500 text-zinc-800">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff" class="w-5 h-5">
-                                                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </span>
-                                            <input type="radio" id="Your Premium Kundli" value="KUNDLI_REPORT" name="offer" class="opacity-0 cursor-pointer absolute" onchange="handleOfferChange()">
+                                            <input type="radio" id="Your Premium Kundli" value="KUNDLI_REPORT" name="offer" class="opacity-0 cursor-pointer absolute" >
                                         </label>
                                         <div class="flex justify-between w-full items-center">
                                             <div>
@@ -72,39 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             </div>
                                             <div>
                                                 <div class="flex text-right md:gap-3 text-xl md:flex-row flex-col">
-                                                    <span class="line-through text-lg md:text-xl text-zinc-500">$ <!-- -->25</span>
-                                                    <h2>$ <!-- -->15</h2>
+                                                    <span class="line-through text-lg md:text-xl text-zinc-500">₹ <!-- -->1280</span>
+                                                    <h2>₹ <!-- -->499</h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex relative gap-5 items-center py-3.5 md:px-10 px-5">
-                                        <label for="Best Combo Offer" class="relative border overflow-hidden rounded-md flex w-[30px] h-[30px] text-center duration-100 gap-2 ease-in cursor-pointer justify-center flex-col items-center text-lg border-zinc-300 bg-white hover:border-lime-500 text-zinc-800">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff" class="w-5 h-5">
-                                                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </span>
-                                            <input type="radio" id="Best Combo Offer" value="KUNDLI_VARSHPHAL_COMBO" name="offer" class="opacity-0 cursor-pointer absolute" onchange="handleOfferChange()">
-                                        </label>
-                                        <div class="flex justify-between w-full items-center">
-                                            <div>
-                                                <h2 class="md:text-lg flex sm:flex-row flex-col justify-start text-left sm:gap-3 sm:items-center">
-                                                    Best Combo Offer
-                                                    <b class="bg-lime-600 max-w-max text-center shadow-xl shadow-zinc-500/30 text-white font-cera_regular rounded-full uppercase px-3 py-[3px] text-xs font-bold">Special
-                                                        Offer</b>
-                                                </h2>
-                                                <p class="sm:pt-0 pt-1 text-orange-600 font-cera_medium">Premium Kundli + Varshphal</p>
-                                            </div>
-                                            <div>
-                                                <div class="flex text-right md:gap-3 text-xl md:flex-row flex-col">
-                                                    <span class="line-through text-lg md:text-xl text-zinc-500">$ <!-- -->45</span>
-                                                    <h2>$ <!-- -->18</h2>
-                                                </div>
-                                                <span class="font-cera_bold text-center text-lime-600">( <!-- -->60 <!-- -->% OFF)</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -455,7 +407,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     payAmount = 10;
                 }
 
-                var request_url = "<?= $base_url ?>" + "/razon-payment";
+                var request_url = "<?= $base_url ?>" + "/razor-payment";
                 var formData = {
                     billing_name: billing_name,
                     billing_mobile: billing_mobile,
@@ -543,21 +495,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         });
     </script>
 
-    <script>
-        function handleOfferChange() {
-            const offers = document.getElementsByName('offer');
-            offers.forEach((offer) => {
-                const label = offer.previousElementSibling;
-                if (offer.checked) {
-                    label.classList.add('shadow-lg', 'border-transparent', 'shadow-lime-500/30', 'bg-lime-600');
-                    label.classList.remove('border-zinc-300', 'bg-white', 'hover:border-lime-500', 'text-zinc-800');
-                } else {
-                    label.classList.add('border-zinc-300', 'bg-white', 'hover:border-lime-500', 'text-zinc-800');
-                    label.classList.remove('shadow-lg', 'shadow-lime-500/30', 'bg-lime-600', 'border-transparent');
-                }
-            });
-        }
-    </script>
+
 
     <script>
         document.querySelectorAll('.chart').forEach(function(radio) {

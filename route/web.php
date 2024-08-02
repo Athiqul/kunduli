@@ -2,14 +2,16 @@
 
 use App\Helpers\Utility;
 //Check request uri
-$requestUri=$_SERVER['REQUEST_URI'];
+$requestUri = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+
 
 if($requestUri=='/')
 {
-   // Utility::dd("hi");
+   
     require_once __DIR__.'/../views/home.php';
 }else if($requestUri=='/user-name')
 {
+   
     require_once __DIR__.'/../views/form/form_name.php';
 }else if($requestUri=='/user-gender')
 {
@@ -38,12 +40,10 @@ if($requestUri=='/')
      
     require_once __DIR__.'/../views/payment.php';
 }else if($requestUri=='/razor-payment'){
-    echo 'Payment Razor';
-    die();
+  
     require_once __DIR__.'/../views/payments/submit_payment.php';
 } else if($requestUri=='/payment-success'){
-    echo 'Payment';
-    die();
+ 
     require_once __DIR__.'/../views/payments/success_payment.php';
 } else if($requestUri=='/payment-failed'){
     require_once __DIR__.'/../views/payments/failed_payment.php';

@@ -1,5 +1,6 @@
 <?php
-//echo "HI";
+
+// $base_url="https://nukshatra.in";
 $base_url="http://localhost:8000";
 require 'vendor/autoload.php';
 

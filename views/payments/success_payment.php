@@ -1,7 +1,6 @@
 
 <?php 
-echo "hi";
-die();
+
 $latitude = '28.7041';
 $longitude = '77.1025';
 $timezone='Asia/Kolkata';
@@ -66,6 +65,8 @@ if ($response) {
         echo $pdf_content;
     } else {
         echo 'Error: ' . $response;
+
+        print_r($response);
     }
 }
 

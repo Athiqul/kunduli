@@ -6,6 +6,206 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $_SESSION['state'] = $_POST['state'];
     header('Location: /user-report');
 }
+$lan = $_SESSION['lan'];
+
+$countries = [
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cabo Verde",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo, Democratic Republic of the",
+    "Congo, Republic of the",
+    "Costa Rica",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
+    "Djibouti",
+    "Dominica",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Equatorial Guinea",
+    "Eritrea",
+    "Estonia",
+    "Eswatini",
+    "Ethiopia",
+    "Fiji",
+    "Finland",
+    "France",
+    "Gabon",
+    "Gambia",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Grenada",
+    "Guatemala",
+    "Guinea",
+    "Guinea-Bissau",
+    "Guyana",
+    "Haiti",
+    "Honduras",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Iran",
+    "Iraq",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kiribati",
+    "Korea, North",
+    "Korea, South",
+    "Kosovo",
+    "Kuwait",
+    "Kyrgyzstan",
+    "Laos",
+    "Latvia",
+    "Lebanon",
+    "Lesotho",
+    "Liberia",
+    "Libya",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Madagascar",
+    "Malawi",
+    "Malaysia",
+    "Maldives",
+    "Mali",
+    "Malta",
+    "Marshall Islands",
+    "Mauritania",
+    "Mauritius",
+    "Mexico",
+    "Micronesia",
+    "Moldova",
+    "Monaco",
+    "Mongolia",
+    "Montenegro",
+    "Morocco",
+    "Mozambique",
+    "Myanmar",
+    "Namibia",
+    "Nauru",
+    "Nepal",
+    "Netherlands",
+    "New Zealand",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "North Macedonia",
+    "Norway",
+    "Oman",
+    "Pakistan",
+    "Palau",
+    "Palestine",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Qatar",
+    "Romania",
+    "Russia",
+    "Rwanda",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Samoa",
+    "San Marino",
+    "Sao Tome and Principe",
+    "Saudi Arabia",
+    "Senegal",
+    "Serbia",
+    "Seychelles",
+    "Sierra Leone",
+    "Singapore",
+    "Slovakia",
+    "Slovenia",
+    "Solomon Islands",
+    "Somalia",
+    "South Africa",
+    "South Sudan",
+    "Spain",
+    "Sri Lanka",
+    "Sudan",
+    "Suriname",
+    "Sweden",
+    "Switzerland",
+    "Syria",
+    "Taiwan",
+    "Tajikistan",
+    "Tanzania",
+    "Thailand",
+    "Timor-Leste",
+    "Togo",
+    "Tonga",
+    "Trinidad and Tobago",
+    "Tunisia",
+    "Turkey",
+    "Turkmenistan",
+    "Tuvalu",
+    "Uganda",
+    "Ukraine",
+    "United Arab Emirates",
+    "United Kingdom",
+    "United States",
+    "Uruguay",
+    "Uzbekistan",
+    "Vanuatu",
+    "Vatican City",
+    "Venezuela",
+    "Vietnam",
+    "Yemen",
+    "Zambia",
+    "Zimbabwe"
+];
 
 ?>
 
@@ -14,8 +214,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <?php require_once __DIR__ . '/../includes/header.php' ?>
 
-<body class="bg-white scroll-smooth "><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4V7FG"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body class="bg-white scroll-smooth ">
     <div id="__next" data-reactroot>
         <div class="w-full">
         <form action="" method="post">
@@ -27,18 +226,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     </div>
                     <div class="w-full h-full" style="opacity: 1; transform: scale(1);">
                         <div class="w-full max-w-lg mx-auto h-full flex flex-col md:gap-20 gap-20 justify-center md:items-center">
-                            <h2 class="md:text-3xl font-sonorous_rough text-2xl text-center text-zinc-800" style="line-height: 1.1;">What’s Your Birthplace?</h2>
+                            <h2 class="md:text-3xl font-sonorous_rough text-2xl text-center text-zinc-800" style="line-height: 1.1;"><?=$lan=='hi'?'आपका जन्म स्थान':'What’s Your Birthplace?'?> </h2>
                             <div class="flex max-w-md mx-auto flex-col justify-between h-full items-end gap-10 w-full">
                                 <div class="gap-10 flex flex-col w-full">
                                     <div class="w-full flex flex-grow gap-5 flex-col">
                                         <div class="bg-white md:text-xl text-lg p-3 rounded-[20px] border border-zinc-200 w-full">
                                             <select id="country" name="country" class="rbt-input-main form-control rbt-input" onchange="fetchStates()">
-                                                <option value="">Select a country...</option>
+                                                <option value=""><?=$lan=='hi'?'अपना देश खोजें':'Select Country...'?> </option>
+                                                
+                                                <?php foreach ($countries as $country):?>
+                                                    <option value="<?=$country?>"><?=$country?></option>
+                                                <?php endforeach;?>
                                             </select>
                                         </div>
-                                        <div class="bg-white md:text-xl text-lg p-3 rounded-[20px] border border-zinc-200 w-full hidden" id="state-container">
-                                            <select id="state" name="state" class="rbt-input-main form-control rbt-input">
-                                                <option value="">Select a state...</option>
+                                        <div class="bg-white md:text-xl text-lg p-3 rounded-[20px] border border-zinc-200 w-full " id="state-container">
+                                            <select id="state" name="state" class="rbt-input-main form-control rbt-input" required>
+                                                <option value=""><?=$lan=='hi'?'अपना जन्म शहर लिखे':'Select State...'?> </option>
                                             </select>
                                         </div>
                                         
@@ -67,22 +270,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://countriesnow.space/api/v0.1/countries')
-                .then(response => response.json())
-                .then(data => {
-                    const countrySelect = document.getElementById('country');
-                    data.data.forEach(country => {
-                        const option = document.createElement('option');
-                        option.value = country.country;
-                        option.textContent = country.country;
-                        countrySelect.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error fetching countries:', error));
-        });
+     
 
         function fetchStates() {
+            const stateSelect = document.getElementById('state');
+            stateSelect.innerHTML='<option value="">Please wait for a moment....</option>';
             const country = document.getElementById('country').value;
             if (country) {
                 fetch('https://countriesnow.space/api/v0.1/countries/states', {
@@ -94,7 +286,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 })
                 .then(response => response.json())
                 .then(data => {
-                    const stateSelect = document.getElementById('state');
+                  
                     const stateContainer = document.getElementById('state-container');
                     stateSelect.innerHTML = '<option value="">Select a state...</option>';
                     data.data.states.forEach(state => {
@@ -103,7 +295,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                         option.textContent = state.name;
                         stateSelect.appendChild(option);
                     });
-                    stateContainer.classList.remove('hidden');
+                    
                 })
                 .catch(error => console.error('Error fetching states:', error));
             }

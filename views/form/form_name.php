@@ -6,7 +6,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     header('Location: /user-gender');
 }
 
+ $_SESSION['lan']=$_GET['language'];
 
+$lan= $_SESSION['lan'];
 
 ?>
 
@@ -37,13 +39,13 @@ require_once __DIR__ .'/../includes/header.php';
                             <div class="w-full h-full" style="opacity: 1; transform: scale(1);">
                                 <div class="w-full h-full max-w-lg mx-auto flex flex-col gap-20 items-center">
                                     <h2 class="md:text-3xl font-sonorous_rough  text-2xl  text-center text-zinc-800"
-                                        style="line-height: 1.1;">What’s Your Name?</h2>
+                                        style="line-height: 1.1;"> <?=$lan=='hi'?'आपका नाम':'What’s Your Name'?>  </h2>
                                     <div
                                         class="flex max-w-md mx-auto flex-col h-full justify-between items-end gap-10 w-full">
                                         <div class="gap-10 flex flex-col w-full"><input type="text"
-                                                placeholder="Enter your name"
+                                                
                                                 class="!border-zinc-200 outline-none border  py-5 px-5 md:px-7 rounded-[10px]  focus:outline-k_orange duration-100 ease-in  md:text-xl text-lg   w-full"
-                                                name="name" placeholder="Your name..." value="<?=  $_SESSION['name']??''?>" required></div>
+                                                name="name" placeholder="<?=$lan=='hi'?'आपका नाम':'What’s Your Name'?> " value="<?=  $_SESSION['name']??''?>" required></div>
                                     </div>
                                 </div>
                             </div>

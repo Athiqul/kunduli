@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     header('Location: /user-birthdate');
 }
 
-
+$lan= $_SESSION['lan'];
 
 ?>
 
@@ -34,8 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                             <div class="w-full h-full" style="opacity: 1; transform: scale(1);">
                            
         <div class="w-full max-w-lg mx-auto flex flex-col md:gap-24 gap-20 justify-center md:items-center">
-            <h2 class="md:text-3xl font-sonorous_rough text-2xl text-center text-zinc-800" style="line-height: 1.1;">
-                What’s Your Gender?
+            <h2 class="md:text-3xl font-sonorous_rough text-2xl text-center text-zinc-800" style="line-height: 1.1;"><?=$lan=='hi'?'आपका नाम':'What’s Your Gender?'?>
+                
             </h2>
             <div class="flex max-w-md mx-auto justify-between h-full flex-col items-end gap-10 w-full">
                 <div class="gap-10 flex flex-col w-full">
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/male-gender.png" class="w-[70%] h-[70%]">
                                 </div>
                             </label>
-                            <span class="text-center">Male</span>
+                            <span class="text-center"><?=$lan=='hi'?'पुल्लिंग':'Male'?></span>
                         </div>
                         <div class="flex flex-col gap-3 items-center">
                             <label for="Female" class="gender-label relative overflow-hidden flex h-[100px] w-[100px] md:h-[130px] md:w-[130px] pt-4 text-center duration-100 gap-2 ease-in cursor-pointer shadow justify-center flex-col items-center text-lg rounded-full bg-white text-zinc-800">
@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/femenine.png" class="w-[70%] h-[70%]">
                                 </div>
                             </label>
-                            <span class="text-center">Female</span>
+                            <span class="text-center"><?=$lan=='hi'?'स्त्रीलिंग':'Female'?></span>
                         </div>
                         <div class="flex flex-col gap-3 items-center">
                             <label for="Other" class="gender-label relative overflow-hidden flex h-[100px] w-[100px] md:h-[130px] md:w-[130px] pt-4 text-center duration-100 gap-2 ease-in cursor-pointer shadow justify-center flex-col items-center text-lg rounded-full bg-white text-zinc-800">
@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/non-binary.png" class="w-[70%] h-[70%]">
                                 </div>
                             </label>
-                            <span class="text-center">Other</span>
+                            <span class="text-center"><?=$lan=='hi'?'अन्य':'Other'?></span>
                         </div>
                     </div>
                 </div>

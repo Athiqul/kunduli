@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST,GET,PUT,PATCH,DELETE');
 header("Content-Type: application/json");
@@ -38,6 +39,11 @@ if (isset($_POST['action']) && $_POST['action'] = 'payOrder') {
     $shipping_email = $_POST['shipping_email'];
     $paymentOption = $_POST['paymentOption'];
     $payAmount = $_POST['payAmount'];
+
+    $_SESSION['language']=$_POST['language'];
+    $_SESSION['chart']=$_POST['chart'];
+    $_SERVER['mobile']=$_POST['shipping_mobile'];
+    $_SERVER['email']=$billing_email;
 
     $note = "Payment of amount Rs. " . $payAmount;
 

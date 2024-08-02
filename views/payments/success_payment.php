@@ -1,6 +1,9 @@
 
 <?php 
-
+use App\DB\Database;
+use App\Email\Email;
+//Filter Data for Database
+//Send Email to user
 $latitude = '28.7041';
 $longitude = '77.1025';
 $timezone='Asia/Kolkata';
@@ -47,28 +50,43 @@ $data = [
     'lat' => $latitude,
     'lon' => $longitude,
     'tzone' => $tzone,
+    "email"=>$_SESSION['email'],
+    "mobile" => $_SESSION['mobile'],
+    "language"=>$_SESSION['language'],
+    "place" => $_SESSION['state'].','.$_SESSION['country'],
+    "chart_style"=> $_SESSION['chart'],
+    "ordered_number"=>$_GET['oid'],
+    "rp_payment_id"=>$_GET['rp_payment_id'],
+    "rp_signature"=>$_GET['rp_signature'],
 ];
 
-$response = apiCalling($endpoint, $data);
+$record=Database::save('user_payment_information',$data);
+
+//Sent Email
+$email=new Email();
+$email->setEmailDetails($record['email'],'Successfully premium kundli purchase done!',"<p>Expect to receive your report at your registered email address within the next 3   working days</p>",true,'Expect to receive your report at your registered email address within the next 3   working days');
+$email->send();
+Database::closeConnection();
+// $response = apiCalling($endpoint, $data);
 
 
 
-if ($response) {
-    $pdf = $response;
+// if ($response) {
+//     $pdf = $response;
 
-    if (isset($pdf['pdf_url'])) {
-        $pdf_url = $pdf['pdf_url'];
-        $pdf_content = file_get_contents($pdf_url);
+//     if (isset($pdf['pdf_url'])) {
+//         $pdf_url = $pdf['pdf_url'];
+//         $pdf_content = file_get_contents($pdf_url);
 
-        header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="basic_horoscope.pdf"');
-        echo $pdf_content;
-    } else {
-        echo 'Error: ' . $response;
+//         header('Content-Type: application/pdf');
+//         header('Content-Disposition: attachment; filename="basic_horoscope.pdf"');
+//         echo $pdf_content;
+//     } else {
+//         echo 'Error: ' . $response;
 
-        print_r($response);
-    }
-}
+//         print_r($response);
+//     }
+// }
 
 function apiCalling($endpoint,$params){
     $api_key = '632374';

@@ -6,14 +6,14 @@ if (!isset($_SESSION['name'])) {
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $_SESSION['offer'] = $_POST['offer'];
-    $_SESSION['chart'] = $_POST['chart'];
-    $_SESSION['lang'] = $_POST['lang'];
-    $_SESSION['language'] = $_POST['language'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['mobile'] = $_POST['mobile'];
-}
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $_SESSION['offer'] = $_POST['offer'];
+//     $_SESSION['chart'] = $_POST['chart'];
+//     $_SESSION['lang'] = $_POST['lang'];
+//     $_SESSION['language'] = $_POST['language'];
+//     $_SESSION['email'] = $_POST['email'];
+//     $_SESSION['mobile'] = $_POST['mobile'];
+// }
 
 ?>
 <html lang="en" class="dark">
@@ -81,13 +81,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <!-- --><?= $_SESSION['year'] ?></span><span class=" font-cera_medium max-w-max whitespace-nowrap"><?= $_SESSION['hour'] ?>:
                                                 <!-- --><?= $_SESSION['min'] ?> Minutes
                                             </span></div><span class=" leading-6 font-cera_medium break-words flex gap-2 items-center"><img src="https://vedicrishi.in/icons/map.png" width="18" class="h-full" alt="map"><?= $_SESSION['state'] ?>, <?= $_SESSION['country'] ?></span>
-                                    </div><button class="flex gap-2 hover:underline text-sm font-cera_medium bg-amber-300 rounded-bl-md rounded-tr-md text-black absolute top-0 py-3 px-3 right-0">EDIT</button>
+
+                                            <span class=" leading-6 font-cera_medium break-words flex gap-2 items-center">NB: Expect to receive your report at your registered email address within the next 3 working days</span>
+
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="flex w-full flex-col gap-7">
                                 <div class="w-full flex flex-row sm:flex-col gap-5 sm:gap-2 items-center justify-start">
                                     <h2 class="text-gray-700 text-lg sm:text-xl sm:w-full font-cera_bold pb-1 sm:border-b border-gray-300 mb-2">
-                                        Report Language</h2><select name="language" class="sm:w-full text-gray-500 p-2 border-2 rounded-md w-40" required>
+                                        Report Language</h2><select name="language" id="language" class="sm:w-full text-gray-500 p-2 border-2 rounded-md w-40" required>
                                         <option selected="" value="en">English</option>
                                         <option value="hi">Hindi</option>
                                     </select>
@@ -118,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <input type="email" id="email" class="input " name="email" placeholder="Enter Your Email" value="" required>
                             </div>
                             <div class="inputbox pt-1 "><label for="mobilenumber">Enter Your Mobile number</label>
-                                <div class="border-2 flex border-zinc-400 rounded-md "><select class="!border-0 bg-gray-50 w-[80px] cursor-pointer outline-none">
+                                <div class="border-2 flex border-zinc-400 rounded-md "><select class="!border-0 bg-gray-50 w-[80px] cursor-pointer outline-none" id="countryCode">
                                         <option value="+1">🇨🇦 +1</option>
                                         <option value="+1">🇺🇸 +1</option>
                                         <option value="+7">🇰🇿 +7</option>
@@ -389,23 +393,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             jQuery('#PayNow').submit(function(e) {
                 e.preventDefault();
-                console.log("hi");
                 var paymentOption = '';
                 let billing_name = "<?php echo $_SESSION['name'] ?>";
-                let billing_mobile = $('#mobilenumber').val();
+                let billing_mobile = +$("#countryCode").val()+$('#mobilenumber').val()
                 let billing_email = $('email').val();
                 var shipping_name = billing_name;
                 var shipping_mobile = billing_mobile;
                 var shipping_email = billing_email;
                 var paymentOption = "netbanking";
-                var offer = $('#offer').val();
-                if (offer == "KUNDLI_VARSHPHAL_COMBO") {
-                    payAmount = 18
-                } else if (offer == "KUNDLI_REPORT") {
-                    offer = 15;
-                } else {
-                    payAmount = 10;
-                }
+                let selectedChart = document.querySelector('input[name="chart"]:checked');
+                let chart=selectedChart.value;
+                let language=document.getElementById('language').value;
+                let payAmount=499;
 
                 var request_url = "<?= $base_url ?>" + "/razor-payment";
                 var formData = {
@@ -417,6 +416,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     shipping_email: shipping_email,
                     paymentOption: paymentOption,
                     payAmount: payAmount,
+                    chart:chart,
+                    language:language,
                     action: 'payOrder'
                 }
 

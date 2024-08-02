@@ -1,6 +1,7 @@
 
 <?php
-session_start();
+require_once __DIR__.'/../../app/controller/Database.php';
+use App\DB\Database;
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST,GET,PUT,PATCH,DELETE');
 header("Content-Type: application/json");
@@ -40,16 +41,13 @@ if (isset($_POST['action']) && $_POST['action'] = 'payOrder') {
     $paymentOption = $_POST['paymentOption'];
     $payAmount = $_POST['payAmount'];
 
-    $_SESSION['language']=$_POST['language'];
-    $_SESSION['chart']=$_POST['chart'];
-    $_SERVER['mobile']=$_POST['shipping_mobile'];
-    $_SERVER['email']=$billing_email;
+
 
     $note = "Payment of amount Rs. " . $payAmount;
 
     $postdata = array(
         "amount" => $payAmount * 100,
-        "currency" => "USD",
+        "currency" => "INR",
         "receipt" => $note,
         "notes" => array(
             "notes_key_1" => $note,
@@ -85,12 +83,18 @@ if (isset($_POST['action']) && $_POST['action'] = 'payOrder') {
 
         $dataArr = array(
             'amount' => $payAmount,
-            'description' => "Pay bill of Rs. " . $payAmount,
             'rpay_order_id' => $rpay_order_id,
             'name' => $billing_name,
             'email' => $billing_email,
-            'mobile' => $billing_mobile
+            'mobile' => $billing_mobile,
+            'id'=>$_POST['id'],
+            "chart"=>$_POST['chart'],
+            "language"=>$_POST['language']
+
         );
+        
+        
+
         echo json_encode(['res' => 'success', 'order_number' => $order_id, 'userData' => $dataArr, 'razorpay_key' => $razorpay_key]);
         exit;
     } else {

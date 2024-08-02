@@ -21,9 +21,11 @@ class Database {
 
             // Check connection
             if (self::$conn->connect_error) {
-                return false;
+                // Throw custom exception with detailed error message
+                throw new DatabaseException('Connection failed: ' . self::$conn->connect_error);
             }
         }
+        echo "Database connection established successfully.";
         return self::$conn;
     }
 
@@ -110,45 +112,50 @@ public static function save($table, $data) {
     //Update
 
     public static function updateDataRecord($table, $data, $id)
-{
-    $conn = self::getConnection();
-
-    // Prepare the SET part of the SQL statement
-    $setPart = "";
-    $values = [];
-    foreach ($data as $column => $value) {
-        $setPart .= "$column = ?, ";
-        $values[] = $value;
+    {
+        $conn = self::getConnection();
+    
+        // Prepare the SET part of the SQL statement
+        $setPart = "";
+        $values = [];
+        foreach ($data as $column => $value) {
+            $setPart .= "$column = ?, ";
+            $values[] = $value;
+        }
+        $setPart = rtrim($setPart, ", "); // Remove trailing comma
+    
+        // Prepare the SQL query
+        $query = "UPDATE $table SET $setPart WHERE id = ?";
+        $stmt = $conn->prepare($query);
+    
+        if ($stmt === false) {
+            throw new Exception("Error preparing statement: " . $conn->error);
+        }
+    
+        // Add the ID to the values array
+        $values[] = $id;
+    
+        // Bind parameters
+        $types = str_repeat('s', count($data)) . 'i'; // Add 'i' for the ID, assuming it's an integer
+        $stmt->bind_param($types, ...$values);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Error executing query: " . $stmt->error);
+        }
+    
+        if ($stmt->affected_rows === 0) {
+            //throw new Exception("No record updated. Either the record does not exist or the data is the same.");
+        }
+    
+        return true;
     }
-    $setPart = rtrim($setPart, ", "); // Remove trailing comma
-
-    // Prepare the SQL query
-    $query = "UPDATE $table SET $setPart WHERE id = ?";
-    $stmt = $conn->prepare($query);
-
-    if ($stmt === false) {
-        throw new Exception("Error preparing statement: " . $conn->error);
-    }
-
-    // Bind parameters
-    $types = str_repeat('s', count($data));
-
-    $stmt->bind_param($types, ...$values);
-
-    if (!$stmt->execute()) {
-        throw new Exception("Error executing query: " . $stmt->error);
-    }
-
-    if ($stmt->affected_rows === 0) {
-        throw new Exception("No record updated. Either the record does not exist or the data is the same.");
-    }
-
-    return true;
-}
+    
 
     
     
 }
+
+class DatabaseException extends Exception {}
 
 ?>
 

@@ -1,10 +1,34 @@
 <?php
 session_start();
+use App\DB\Database;
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+    require_once __DIR__.'/../../app/controller/Database.php';
+   
     $_SESSION['country'] = $_POST['country'];
     $_SESSION['state'] = $_POST['state'];
-    header('Location: /user-report');
+    $data = [
+        'name' => $_SESSION['name'],
+        'gender' => $_SESSION['gender'],
+        'day' => $_SESSION['day'],
+        'month' => $_SESSION['month'],
+        'year' => $_SESSION['year'],
+        'hour' => $_SESSION['hour'],
+        'min' => $_SESSION['min'],
+        "place" => $_SESSION['state'].','.$_SESSION['country'],
+    ];
+    
+    
+    
+    $record=Database::save('user_payment_information',$data);
+    if($record)
+    {
+
+        $_SESSION['record']=$record;
+       
+        header('Location: /user-report');
+    }
+   
 }
 $lan = $_SESSION['lan'];
 

@@ -42,7 +42,7 @@ $lan= $_SESSION['lan'];
                     <div class="flex md:gap-10 justify-between gap-5 sm:flex-row w-full mx-auto ">
                         <div class="flex flex-col gap-3 items-center">
                             <label for="Male" class="gender-label relative overflow-hidden flex h-[100px] w-[100px] md:h-[130px] md:w-[130px] pt-4 text-center duration-100 gap-2 ease-in cursor-pointer shadow justify-center flex-col items-center text-lg rounded-full bg-white text-zinc-800">
-                                <input id="Male" name="gender" type="radio" class="gender-input opacity-0 absolute" value="male">
+                                <input id="Male" name="gender" type="radio" class="gender-input opacity-0 absolute" value="male" required>
                                 <div class="w-[80px] flex justify-center h-[80px] md:w-[100px] md:h-[100px] md:mt-4 mt-[5px]">
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/male-gender.png" class="w-[70%] h-[70%]">
                                 </div>
@@ -51,7 +51,7 @@ $lan= $_SESSION['lan'];
                         </div>
                         <div class="flex flex-col gap-3 items-center">
                             <label for="Female" class="gender-label relative overflow-hidden flex h-[100px] w-[100px] md:h-[130px] md:w-[130px] pt-4 text-center duration-100 gap-2 ease-in cursor-pointer shadow justify-center flex-col items-center text-lg rounded-full bg-white text-zinc-800">
-                                <input id="Female" name="gender" type="radio" class="gender-input opacity-0 absolute" value="female">
+                                <input id="Female" name="gender" type="radio" class="gender-input opacity-0 absolute" value="female" required>
                                 <div class="w-[80px] flex justify-center h-[80px] md:w-[100px] md:h-[100px] md:mt-4 mt-[5px]">
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/femenine.png" class="w-[70%] h-[70%]">
                                 </div>
@@ -60,7 +60,7 @@ $lan= $_SESSION['lan'];
                         </div>
                         <div class="flex flex-col gap-3 items-center">
                             <label for="Other" class="gender-label relative overflow-hidden flex h-[100px] w-[100px] md:h-[130px] md:w-[130px] pt-4 text-center duration-100 gap-2 ease-in cursor-pointer shadow justify-center flex-col items-center text-lg rounded-full bg-white text-zinc-800">
-                                <input id="Other" name="gender" type="radio" class="gender-input opacity-0 absolute" value="other">
+                                <input id="Other" name="gender" type="radio" class="gender-input opacity-0 absolute" value="other" require>
                                 <div class="w-[80px] flex justify-center h-[80px] md:w-[100px] md:h-[100px] md:mt-4 mt-[5px]">
                                     <img src="https://vedicrishi.in/kundli_analyser/icon/non-binary.png" class="w-[70%] h-[70%]">
                                 </div>

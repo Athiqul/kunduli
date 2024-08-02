@@ -1,19 +1,15 @@
 <?php
 session_start();
-
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
+// die();
 if (!isset($_SESSION['name'])) {
     header('Location: /');
     exit();
 }
 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $_SESSION['offer'] = $_POST['offer'];
-//     $_SESSION['chart'] = $_POST['chart'];
-//     $_SESSION['lang'] = $_POST['lang'];
-//     $_SESSION['language'] = $_POST['language'];
-//     $_SESSION['email'] = $_POST['email'];
-//     $_SESSION['mobile'] = $_POST['mobile'];
-// }
+
 
 ?>
 <html lang="en" class="dark">
@@ -393,10 +389,11 @@ if (!isset($_SESSION['name'])) {
 
             jQuery('#PayNow').submit(function(e) {
                 e.preventDefault();
+                console.log('hi');
                 var paymentOption = '';
                 let billing_name = "<?php echo $_SESSION['name'] ?>";
                 let billing_mobile = +$("#countryCode").val()+$('#mobilenumber').val()
-                let billing_email = $('email').val();
+                let billing_email = $('#email').val();
                 var shipping_name = billing_name;
                 var shipping_mobile = billing_mobile;
                 var shipping_email = billing_email;
@@ -418,8 +415,11 @@ if (!isset($_SESSION['name'])) {
                     payAmount: payAmount,
                     chart:chart,
                     language:language,
+                    id:"<?=$_SESSION['record']['id']?>",
                     action: 'payOrder'
                 }
+
+               // console.log(formData);
 
                 $.ajax({
                     type: 'POST',
@@ -442,12 +442,12 @@ if (!isset($_SESSION['name'])) {
                             "order_id": data.userData.rpay_order_id, //This is a sample Order ID. Pass 
                             "handler": function(response) {
 
-                                window.location.replace("<?= $base_url ?>/payment-success?oid=" + orderID + "&rp_payment_id=" + response.razorpay_payment_id + "&rp_signature=" + response.razorpay_signature);
+                                window.location.replace("<?= $base_url ?>/payment-success?oid=" + orderID + "&rp_payment_id=" + response.razorpay_payment_id   +"&id="+data.userData.id +"&email=" + data.userData.email+"&mobile="+data.userData.mobile +  "&chart=" + data.userData.chart + "&language=" +data.userData.language  );
 
                             },
                             "modal": {
                                 "ondismiss": function() {
-                                    window.location.replace("<?= $base_url ?>/payment-success?oid=" + orderID);
+                                    window.location.replace("<?= $base_url ?>");
                                 }
                             },
                             "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number

@@ -79,26 +79,7 @@ $email=new Email();
 $email->setEmailDetails($_GET['email'],'Successfully premium kundli purchase done!',"<p>Expect to receive your report at your registered email address within the next 3   working days</p>",true,'Expect to receive your report at your registered email address within the next 3   working days');
 $email->send();
 Database::closeConnection();
-// $response = apiCalling($endpoint, $data);
-
-
-
-// if ($response) {
-//     $pdf = $response;
-
-//     if (isset($pdf['pdf_url'])) {
-//         $pdf_url = $pdf['pdf_url'];
-//         $pdf_content = file_get_contents($pdf_url);
-
-//         header('Content-Type: application/pdf');
-//         header('Content-Disposition: attachment; filename="basic_horoscope.pdf"');
-//         echo $pdf_content;
-//     } else {
-//         echo 'Error: ' . $response;
-
-//         print_r($response);
-//     }
-// }
+header('Location : /');
 
 function apiCalling($endpoint,$params){
     $api_key = '632374';

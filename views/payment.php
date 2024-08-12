@@ -113,12 +113,12 @@ if (!isset($_SESSION['name'])) {
                             </div>
                         </div>
                         <div class="w-full flex flex-col gap-3 border-t mt-5 ">
-                            <div class="inputbox pt-3 mt-4">
+                            <div class="inputbox pt-3 mt-4 ">
                                 <label for="email">Enter Your Email</label>
-                                <input type="email" id="email" class="input " name="email" placeholder="Enter Your Email" value="" required>
+                                <input type="email" id="email" class="!border-0 bg-gray-50 !p-4" name="email" placeholder="Enter Your Email" value="" required>
                             </div>
                             <div class="inputbox pt-1 "><label for="mobilenumber">Enter Your Mobile number</label>
-                                <div class="border-2 flex border-zinc-400 rounded-md "><select class="!border-0 bg-gray-50 w-[80px] cursor-pointer outline-none" id="countryCode">
+                                <div class="border-2 flex border-zinc-400 rounded-md "><select class="!border-0 bg-gray-50 w-[80px] cursor-pointer outline-none inputbox !py-4 !px-2" id="countryCode">
                                         <option value="+1">🇨🇦 +1</option>
                                         <option value="+1">🇺🇸 +1</option>
                                         <option value="+7">🇰🇿 +7</option>
@@ -365,7 +365,7 @@ if (!isset($_SESSION['name'])) {
                                         <option value="+1869">🇰🇳 +1869</option>
                                         <option value="+1876">🇯🇲 +1876</option>
                                         <option value="+1939">🇵🇷 +1939</option>
-                                    </select><input type="text" id="mobilenumber" class="w-full outline-none px-2" minlength="8" maxlength="11" name="mobilenumber" placeholder="Enter Your Mobile Number" value="" required></div>
+                                    </select><input type="text" id="mobilenumber" class="w-full outline-none px-2 inputbox !p-4" minlength="8" maxlength="11" name="mobilenumber" placeholder="Enter Your Mobile Number" value="" required></div>
                             </div>
                             <div class="flex flex-col w-full">
                                 <div class="flex sm:flex-row flex-col items-start gap-5 sm:gap-10 w-full mt-3"><button type="submit" class=" cursor-pointer text-lg font-bold rounded-md font-cera_medium bg-yellow-400 w-full text-black py-2.5 md:float-right hover:bg-yellow-500">Pay

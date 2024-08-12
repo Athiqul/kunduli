@@ -55,6 +55,16 @@ class Email {
         }
     }
 
+      // Method to add an attachment
+      public function addAttachment($fileContent, $filename) {
+        try {
+            $this->mail->addStringAttachment($fileContent, $filename);
+            return true;
+        } catch (Exception $e) {
+            throw new Exception('Error adding attachment: ' . $this->mail->ErrorInfo);
+        }
+    }
+
     // Method to send the email
     public function send() {
         try {

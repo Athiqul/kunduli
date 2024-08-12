@@ -10,7 +10,7 @@ header('Access-Control-Allow-Headers:Access-Control-Allow-Origin,Access-Control-
 
 if (isset($_POST['action']) && $_POST['action'] = 'payOrder') {
 
-    $razorpay_mode = 'test';
+    $razorpay_mode = 'live';
 
     $razorpay_test_key = 'rzp_test_D3KCyPjWrrORCo'; //Your Test Key
     $razorpay_test_secret_key = 'pcHTA1a806sqohQgTxLZhQsi'; //Your Test Secret Key

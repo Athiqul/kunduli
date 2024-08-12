@@ -11,7 +11,7 @@
             <form action="<?=$base_url?>/user-name" method="get">
             <div>
                 <div id="analyser"
-                    class="jsx-56635bc6dab035da relative overflow-y-scroll min-h-screen   md:py-3 h-full md:h-screen flex justify-center w-full bg-cover  bg-center " style="background-image: url(https://cdn.astopia.com/e8f74246-789f-4791-a86b-a309155a246a.jpg);">
+                    class="jsx-56635bc6dab035da relative overflow-y-scroll min-h-screen   md:py-3 h-full md:h-screen flex justify-center w-full bg-cover  bg-center " style="background-image: url(<?=$base_url."/src/imgs/background.jpg"?>);">
                     <div style="background-image:linear-gradient(0deg,#ffffff,#f9f5ed)"
                         class="jsx-56635bc6dab035da max-w-[600px] overflow-hidden glass-effect  md:h-full w-full mx-auto md:rounded-[16px]">
                         <div class=" h-full px-5 pt-5 flex flex-col gap-14 overflow-y-scroll overflow-x-hidden w-full">
@@ -32,14 +32,14 @@
                                     <div
                                         class="flex max-w-sm mx-auto flex-col h-full justify-between items-end gap-10 w-full">
                                         <div class="gap-5 md:gap-10 flex flex-col w-full">
-                                            <button type="button" onclick="changeLanguage('hi')" name="language" value="hi" 
-                                                class="!border-zinc-200 outline-none border font-sonorous_rough py-5 px-5 md:px-7 rounded-[10px]   duration-100 ease-in  md:text-xl text-lg   w-full">
+                                            <button type="button"  name="language" value="hi" 
+                                                class="!border-zinc-200 outline-none border font-sonorous_rough py-5 px-5 md:px-7 rounded-[10px]   duration-100 ease-in  md:text-xl text-lg   w-full" id="hindi">
                                                 <h2>हिंदी</h2>
                                             </button>
                                             
                                             <button type="button" 
                                                 name="language" value="en"
-                                                class="!border-zinc-200 outline-none border font-sonorous_rough py-5 px-5 md:px-7 rounded-[10px]   duration-100 ease-in  md:text-xl text-lg   w-full">
+                                                class="!border-zinc-200 outline-none border font-sonorous_rough py-5 px-5 md:px-7 rounded-[10px]   duration-100 ease-in  md:text-xl text-lg   w-full bg-orange-400" id="english">
                                                 <h2>English</h2>
                                             </button>
                                             
@@ -59,7 +59,7 @@
                     <div
                         class="flex justify-between py-3 px-5 w-[95%] rounded-md mx-auto bg-white shadow shadow-zinc-300/50">
                         <div></div><button 
-                            class=" max-w-max relative z-[999] gap-10 justify-between font-cera_regular bg-orange-400 active:bg-orange-800 text-white text-base w-full py-2.5 px-5 ease-in duration-100 rounded-md flex items-center text-center"><span>Next</span><span
+                            class=" max-w-max relative z-[999] gap-10 justify-between font-cera_regular bg-orange-400  active:bg-orange-800 text-white text-base w-full py-2.5 px-5 ease-in duration-100 rounded-md flex items-center text-center"><span>Next</span><span
                                 class="text-current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor" class="w-5 h-5">
                                     <path fill-rule="evenodd"
@@ -74,12 +74,33 @@
     </div>
 
      <script>
-        function changeLanguage(lan) {
-            // Set the hidden input value
-            document.getElementById('languageInput').value =lan;
-          
+     
+     document.getElementById('hindi').addEventListener('click', function() {
+    changeLanguage('hi');
+});
 
-            }
+document.getElementById('english').addEventListener('click', function(event) {
+    event.target.focus();
+    changeLanguage('en');
+});
+
+        function changeLanguage(lan) {
+    // Set the hidden input value
+    alert("Language selected: " + lan);
+    console.log(lan);
+    document.getElementById('languageInput').value = lan;
+
+    if (lan === 'hi') {
+        // Change the background color of the element with id 'hindi' to orange-400
+        document.getElementById('hindi').classList.add('bg-orange-400');
+        document.getElementById('english').classList.remove('bg-orange-400');
+    } else {
+        // Optional: If you want to reset the background color when lan is not 'hi'
+        document.getElementById('hindi').classList.remove('bg-orange-400');
+        document.getElementById('english').classList.add('bg-orange-400');
+    }
+}
+
         
     </script>
    

@@ -4,7 +4,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/src/imgs/logo.jpg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/src/imgs/logo.jpg" />
     <link rel="icon" type="image/png" sizes="16x16" href="/src/imgs/logo.jpg" />
-    <link rel="manifest" href="https://vedicrishi.in/favicon/site.webmanifest" />
+   
    
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#f5a540" />
@@ -90,5 +90,10 @@
 .inputbox2 {
     flex: 2
 }
+
+.bg-orange-400 {
+  background-color: #f97316; /* Hex value for the color */
+}
+
     </style>
 </head>

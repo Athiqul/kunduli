@@ -144,7 +144,7 @@ public static function save($table, $data) {
         }
     
         if ($stmt->affected_rows === 0) {
-            //throw new Exception("No record updated. Either the record does not exist or the data is the same.");
+            // throw new Exception("No record updated. Either the record does not exist or the data is the same.");
         }
     
         return true;

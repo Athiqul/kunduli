@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Avoid routing URLs that contain /src
+    RewriteCond %{REQUEST_URI} !^/src/
+
+    # If the request URI doesn't start with /index.php, route through index.php
+    RewriteCond %{REQUEST_URI} !^/index\.php
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+</IfModule>
